@@ -1,0 +1,411 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing:  border-box;
+}
+
+:root{
+    --rojo-barber: rgb(157, 48, 48);
+    --gris-fon: #2b2b2b;
+    --ancho-contenedor: 90%;
+    --color-fondo-cartas: #555555;
+}
+
+body{
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--gris-fon);
+}
+
+/* ------Estilos del header/encabezado------ */
+
+.overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+header{
+    background-image: url(imagenes/imagen_header.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 600px;
+    position: relative;
+}
+
+header .contenido_principal_header{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0 10px 0 10px;
+}
+
+#titulo{
+    color: white;
+    font-size: 3rem;
+    position: relative;
+    z-index: 3;
+    letter-spacing: 3px;
+}
+
+.imagen_tijeras{
+    width: 75px;
+    height: 75px;
+    position: relative;
+    z-index: 2;
+    background-color: rgb(72, 21, 21, 0.5);
+    border-radius: 100%;
+    padding: 10px;
+}
+
+#navbar{
+    position: relative;
+    z-index: 2;
+}
+
+#burguer{
+    display: none;
+}
+
+.menu{
+    display: none;
+    font-size: 3rem;
+    color: white;
+    position: relative;
+    z-index: 2;
+}
+
+#ul_navbar{
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.li_navbar{
+    list-style: none;
+}
+
+.li_navbar a{
+    text-decoration: none;
+    font-size: 1.3rem;
+    color: white;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: color .3s;
+    padding: 8px;
+    border-radius: 10px;
+}
+
+.li_navbar a:hover{
+    color: var(--rojo-barber);
+    background-color: white;
+}
+
+.texto_descriptivo_header{
+    padding: 70px;
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    width: var(--ancho-contenedor);
+    margin: 0 auto;
+}
+
+.texto_descriptivo_header h2{
+    color: white;
+    font-size: 2.3rem;
+    text-transform: uppercase;
+    padding-bottom: 35px;
+}
+
+.btn-reserva{
+    display: inline-block;
+    background-color: var(--rojo-barber);
+    color: white;
+    padding: 15px 25px;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.btn-reserva:hover{
+    background-color: white;
+    color: var(--rojo-barber);
+    transform: scale(1.05);
+}
+
+.texto_descriptivo_header p, .contenedor-btn-reservas{
+    color: white;
+    font-size: 1.6rem;
+    line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+    .texto_descriptivo_header p{
+        width: var(--ancho-contenedor);
+    }
+
+    .menu {
+        display: block; /* Muestra el icono de hamburguesa */
+        cursor: pointer;
+        z-index: 11;
+    }
+
+    #navbar {
+        opacity: 0;
+        position: absolute;
+        visibility: hidden;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0);
+        z-index: 10;
+        transform: translateX(20px);
+        transition: all 0.4s ease;
+        line-height: 1.6;
+    }
+
+    /* --- LA MAGIA: Cuando el checkbox esté marcado, muestra el navbar --- */
+    #burguer:checked ~ #navbar {
+        opacity: 1;
+        visibility: visible;
+        transform: translateX(0);
+    }
+
+    #ul_navbar {
+        flex-direction: column;
+        align-items: center;
+        padding: 70px 0;
+        height: auto; /* Cambiado de 400px a auto para que respire mejor */
+        gap: 30px;
+    }
+
+    /* Ajuste del texto descriptivo para que no se rompa en pantallas chicas */
+    .texto_descriptivo_header {
+        width: 100%;
+        padding: 20px;
+        text-align: center;
+    }
+
+    .reservas_wsp{
+        width: 90%;
+    }
+}
+
+/* -------Diseño de la seccion principal / main--------- */
+
+#servicios{
+    width: var(--ancho-contenedor);
+    margin: 0 auto;
+    padding: 80px 0;
+}
+
+#servicios h2{
+    color: white;
+    font-size: 2rem;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    text-transform: uppercase;
+}
+
+#servicios p{
+    color: white;
+    font-size: 1.1rem;
+    padding: 20px 0;
+}
+
+.tarjetas{
+    display: flex;
+    gap: 20px;
+    justify-content: space-around;
+    width: var(--ancho-contenedor);
+    margin: 0 auto;
+}
+
+.tarjetas .img-servicios{
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.card{
+    width: 300px;
+    height: 590px;
+    border-radius: 20px;
+    background-color: var(--color-fondo-cartas);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card .btn-servicios{
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: all .3s;
+    background-color: #2b2b2b;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.card .btn-servicios:hover{
+    color: var(--rojo-barber);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+}
+
+.descripcion-servicios{
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+}
+
+
+.descripcion-servicios .subtitulo-tarjeta{
+    font-size: 23px;
+    color: white;
+    padding: 5px 0;
+    width: 250px;
+    margin: 0 auto;
+}
+
+.descripcion-servicios p{
+    width: 250px;
+    margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+    .tarjetas{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .card{
+        width: 250px;
+        height: 470px;
+    }
+
+    .card .img-servicios{
+        width: 250px;
+        height: 200px;
+    }
+
+    .descripcion-servicios .subtitulo-tarjeta{
+        font-size: 20px;
+    }
+}
+
+#testimonios{
+    width: var(--ancho-contenedor);
+    margin: 0 auto;
+}
+
+#testimonios h2{
+    color: white;
+    font-size: 2rem;
+    letter-spacing: 2px;
+    padding: 20px 0;
+    text-transform: uppercase;
+}
+
+.tarjeta{
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    background-color: var(--color-fondo-cartas);
+    margin: 10px 0;
+    border: 2px solid black;
+    border-radius: 6px;
+    padding: 8px;
+}
+
+.tarjeta .imagen_usuario{
+    font-size: 3.5rem;
+}
+
+.tarjeta .opinion_usuario p{
+    color: white;
+    font-size: 18px;
+}
+
+.tarjeta .opinion_usuario .user{
+    color: black;
+    font-size: 19px;
+    font-weight: 800;
+}
+
+.user span{
+    color: yellow;
+}
+
+#ubicacion{
+    background-color: var(--gris-fon);
+    padding: 60px 0;
+    text-align: center;
+}
+
+#ubicacion .subtitulo-ubicacion{
+    color: white;
+    font-size: 2rem;
+    padding-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+/* -------Estilos del footer/pie de pagina--------- */
+
+footer{
+    background-color: black;
+    height: 150px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px;
+    width: 100%;
+}
+
+footer .copy{
+    color: white;
+    font-size: 17px;
+    width: 300px;
+}
+
+footer .redes{
+    color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.redes span a{
+    color: white;
+    text-decoration: none;
+    transition: all .3s;
+}
+
+.redes span a:hover{
+    color: blue;
+}
+
+footer .horarios{
+    color: white;
+}
+
+
+.icon-wsp, .icon-face, .icon-insta{
+    font-size: 1.2rem;
+}
