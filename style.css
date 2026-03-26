@@ -14,6 +14,8 @@
 body{
     font-family: 'Poppins', sans-serif;
     background-color: var(--gris-fon);
+    margin: 0;
+    overflow-x: hidden;
 }
 
 /* ------Estilos del header/encabezado------ */
@@ -212,9 +214,10 @@ header .contenido_principal_header{
 /* -------Diseño de la seccion principal / main--------- */
 
 #servicios{
-    width: var(--ancho-contenedor);
+    width: 100%;
+    max-width: 1200px;
     margin: 0 auto;
-    padding: 80px 0;
+    padding: 80px 20px;
 }
 
 #servicios h2{
@@ -236,7 +239,8 @@ header .contenido_principal_header{
     gap: 20px;
     flex-wrap: wrap;
     justify-content: center;
-    width: var(--ancho-contenedor);
+    width: 100%;
+    max-width: 1200px;
     margin: 0 auto;
 }
 
@@ -302,10 +306,6 @@ header .contenido_principal_header{
         flex-wrap: wrap;
         justify-content: center;
     }
-    .card{
-        width: 250px;
-        height: 600px;
-    }
 
     .descripcion-servicios .subtitulo-tarjeta{
         font-size: 20px;
@@ -368,6 +368,14 @@ header .contenido_principal_header{
     text-transform: uppercase;
     letter-spacing: 2px;
     text-transform: uppercase;
+}
+
+@media (max-width:768px) {
+    #ubicacion iframe{
+        width: 100%;
+        height: 200px;
+        min-height: auto;
+    }    
 }
 
 /* -------Estilos del footer/pie de pagina--------- */
